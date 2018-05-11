@@ -46,11 +46,13 @@ public class Battleground extends Canvas implements KeyListener, Runnable
 	private boolean title = true;
 	private TitleScreen titlescreen;
 	private LoseScreen losescreen;
+	private WinScreen winscreen;
 	
 	public Battleground()
 	{
 		titlescreen = new TitleScreen();
 		losescreen = new LoseScreen();
+		winscreen = new WinScreen();
 		setBackground(Color.black);
 		keys = new boolean[5];
 		bow = new Bow(600,200,0);
@@ -61,7 +63,7 @@ public class Battleground extends Canvas implements KeyListener, Runnable
 		level = 0;
 		score = 0;
 		reload = 0;
-		money = 100000000;
+		money = 1000;
 		damage = 50;
 		health = 100;
 		fort = new Fort(health);
@@ -109,6 +111,10 @@ public class Battleground extends Canvas implements KeyListener, Runnable
 		else if (fort.getHealth() <= 0) {
 			losescreen.paint(graphToBack);
 			twoDGraph.drawImage(back,null,0,0);
+		}
+		else if (level >= 5) {
+			winscreen.paint(graphToBack);
+			twoDGraph.drawImage(back, null, 0, 0);
 		}
 		else {
 		graphToBack.setColor(Color.BLUE);
@@ -206,7 +212,7 @@ public class Battleground extends Canvas implements KeyListener, Runnable
 
 	public void newLevel(int level) {
 		for (int i = 0; i < 10+level*5; i++) {
-			knights.add(new Knight(-100*i,350,1,100+20*level,100+20*level));
+			knights.add(new Knight(-(100-10*level)*i,350,1,100+20*level,100+20*level));
 		}
 		fort.setHealth(fort.getMaxHealth());
 		
@@ -257,8 +263,6 @@ public class Battleground extends Canvas implements KeyListener, Runnable
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE)
 		{
-			System.out.println(knights.size());
-			System.out.println(knights.toString());
 			keys[4] = false;
 			if (reload < 0) {
 				timeReleased = System.currentTimeMillis();

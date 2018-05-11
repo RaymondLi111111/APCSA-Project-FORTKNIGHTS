@@ -28,7 +28,6 @@ public class Fort {
 		}
 		catch(Exception e)
 		{
-			System.out.println("402 Glaze it!");
 		}
 	}
 	public void draw( Graphics window )

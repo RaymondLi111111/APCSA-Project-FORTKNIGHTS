@@ -29,7 +29,7 @@ public class Knight extends MovingThing
 		{
 			super(x, y);
 			speed=s;
-			healthbar = new HealthBar(getX(),getY()-10,50,10,1.0,s,Color.green);
+			healthbar = new HealthBar(getX()+15,getY()-10,50,10,1.0,s,Color.green);
 			hp = h;
 			maxhp = maxh;
 			try
@@ -38,7 +38,6 @@ public class Knight extends MovingThing
 			}
 			catch(Exception e)
 			{
-				System.out.println("402 Glaze it!");
 			}
 		}
 

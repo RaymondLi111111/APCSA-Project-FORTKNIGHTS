@@ -30,7 +30,6 @@ public class Ammo extends MovingThing{
 		}
 		catch(Exception e)
 		{
-			System.out.println("420 Glaze it!");
 		}
 	}
 	public void setSpeed(double hs, double vs) {
@@ -61,7 +60,6 @@ public class Ammo extends MovingThing{
 	}
 	@Override
 	public void setSpeed(int s) {
-		System.out.println("420 Blaze it!");
 	}
 	@Override
 	public int getSpeed() {

@@ -28,7 +28,6 @@ public class Bow extends MovingThing{
 		}
 		catch(Exception e)
 		{
-			System.out.println("420 Glaze it!");
 		}
 	}
 	public void setSpeed(int s) {
